@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg';
 function Navbar() {
     return (
         <div>
-            <div className='flex justify-between  container px-12 p-6  '>
+            <div className='flex justify-between container mx-auto px-12 p-6'>
                 <img src={logo} alt="localhost logo" className="h-8" />
                 <div className='flex gap-5 font-bold '>
                     <p>Home</p>

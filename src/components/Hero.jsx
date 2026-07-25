@@ -5,10 +5,10 @@ import HeroInput from './HeroInput';
 function Hero() {
     return (
         <div
-            className="relative bg-cover bg-center rounded-2xl overflow-hidden"
+            className="relative mx-auto px-12 bg-cover bg-center  overflow-hidden container"
             style={{ backgroundImage: `url(${heroImage})` }}
         >
-            <div className="px-12 py-16">
+            <div className="py-16">
                 <h1 className="text-4xl font-bold text-gray-900">
                     Find a <span className="text-green-500">host</span> for every journey
                 </h1>
