@@ -1,7 +1,8 @@
 import { Star } from 'lucide-react';
 function ListingCard(props) {
     return (
-        <div className="rounded-2xl overflow-hidden shadow-md border border-gray-300">
+       <div>
+         <div className="rounded-2xl overflow-hidden shadow-md border border-gray-300">
             <div className="relative ">
                 <img src={props.image} alt={props.title} className="w-full h-[300px] object-cover" />
                 <button className="absolute top-2 right-2 bg-white p-2 rounded-full">
@@ -26,6 +27,10 @@ function ListingCard(props) {
                 </p>
             </div>
         </div>
+       
+       </div>
+
+        
     );
 }
 

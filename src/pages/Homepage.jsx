@@ -38,8 +38,13 @@ const Homepage = () => {
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-6 relative'>
                 {listings.map((item) => <ListingCard key={item.title} title={item.title} location={item.location} price={item.price} rating={item.rating} image={item.image} />)}
+            </div>
 
-               
+            <div className='flex justify-center'>
+                <button className='text-emerald-400 border font-bold
+                 border-emerald-400 rounded-md px-4 py-2 hover:bg-gray-100'>
+                    Show more
+                </button>
             </div>
         </div>
     )
