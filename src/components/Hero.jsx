@@ -5,7 +5,7 @@ import HeroInput from './HeroInput';
 function Hero() {
     return (
         <div
-            className="relative mx-auto px-12 bg-cover bg-center  overflow-hidden container"
+            className="relative mx-auto px-16 bg-cover bg-center  overflow-hidden container"
             style={{ backgroundImage: `url(${heroImage})` }}
         >
             <div className="py-16">
