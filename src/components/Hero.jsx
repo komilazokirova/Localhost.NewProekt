@@ -1,11 +1,10 @@
 import heroImage from '../assets/heroImage.png';
 import HeroInput from './HeroInput';
 
-
-function Hero() {
+function Hero({ onSearch }) {
     return (
         <div
-            className="relative mx-auto px-16 bg-cover bg-center  overflow-hidden container"
+            className="relative mx-auto px-16 bg-cover bg-center overflow-hidden container"
             style={{ backgroundImage: `url(${heroImage})` }}
         >
             <div className="py-16">
@@ -17,8 +16,7 @@ function Hero() {
                 </p>
 
                 <div className="mt-8">
-                      <HeroInput/>
-
+                    <HeroInput onSearch={onSearch} />
                 </div>
             </div>
         </div>

@@ -1,37 +1,106 @@
-import { Star } from 'lucide-react';
-function ListingCard(props) {
-    return (
-       <div>
-         <div className="rounded-2xl overflow-hidden shadow-md border border-gray-300">
-            <div className="relative ">
-                <img src={props.image} alt={props.title} className="w-full h-[300px] object-cover" />
-                <button className="absolute top-2 right-2 bg-white p-2 rounded-full">
-                    <img src="/iconCardYurak.svg" alt="like" className="w-5 h-5" />
-                </button>
-            </div>
+import React from "react";
+import { Heart, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-            <div className="p-4">
-                <div className="flex justify-between items-center">
-                    <h3 className="font-semibold text-gray-900">{props.title}</h3>
-                    <div className="flex items-center gap-1">
-                        <Star size={16} className="text-yellow-500 fill-yellow-500" />
-                        <span className="text-sm">{props.rating}</span>
-                    </div>
-                </div>
+const ListingCard = ({
+  id,
+  title,
+  location,
+  price,
+  rating,
+  image,
+  isFavorite,
+  onFavorite,
+  item,
+}) => {
+  const navigate = useNavigate();
 
-                <p className="text-sm text-gray-500">{props.location}</p>
+  const openDetails = () => {
+    navigate(`/listing/${id}`, {
+      state: item,
+    });
+  };
 
-                <p className="mt-1">
-                    <span className="font-semibold text-gray-900">{props.price}</span>
-                    <span className="text-sm text-gray-500"> /night</span>
-                </p>
-            </div>
+  return (
+    <div
+      onClick={openDetails}
+      className="cursor-pointer"
+    >
+
+      {/* IMAGE */}
+      <div className="relative">
+
+        <img
+          src={`/${image}`}
+          alt={title}
+          className="w-full h-[250px] object-cover rounded-xl"
+        />
+
+        {/* ❤️ */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onFavorite(item);
+          }}
+          className="absolute top-3 right-3 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:scale-105 transition"
+        >
+          <Heart
+            size={21}
+            className={
+              isFavorite
+                ? "text-red-500"
+                : "text-gray-700"
+            }
+            fill={
+              isFavorite
+                ? "red"
+                : "none"
+            }
+          />
+        </button>
+
+      </div>
+
+      {/* INFO */}
+      <div className="pt-3">
+
+        <div className="flex justify-between">
+
+          <h3 className="font-semibold text-lg">
+            {title}
+          </h3>
+
+          <div className="flex items-center gap-1">
+
+            <Star
+              size={15}
+              fill="currentColor"
+            />
+
+            <span className="text-sm">
+              {rating}
+            </span>
+
+          </div>
+
         </div>
-       
-       </div>
 
-        
-    );
-}
+        <p className="text-gray-500 text-sm mt-1">
+          {location}
+        </p>
 
-export default ListingCard
+        <p className="font-semibold mt-2">
+          {price}
+          <span className="text-gray-500 font-normal">
+            {" "}
+            / night
+          </span>
+        </p>
+
+      </div>
+
+    </div>
+  );
+};
+
+export default ListingCard;
